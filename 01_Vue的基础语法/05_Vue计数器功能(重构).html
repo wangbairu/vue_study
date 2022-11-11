@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>当前计数: {{ counter }}</h2>
+      <button @click="increament">+1</button>
+      <button @click="decreament">-1</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // 如果 createApp 传入的对象有 template ,那么该 template 中的模板会替换掉 app 中的内容, 如果没有, 那么vue会将app当作其模板
+      const app = Vue.createApp({
+        data: function () {
+          return {
+            counter: 0,
+          };
+        },
+        methods: {
+          increament: function () {
+            this.counter++;
+          },
+          decreament: function () {
+            this.counter--;
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
